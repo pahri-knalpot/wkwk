@@ -1,0 +1,126 @@
+/* =====================================================
+   PRODUK
+   ===================================================== */
+.produk-page { padding-top: 56px; }
+
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.produk-card {
+    background: var(--maroon-500);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-sm);
+    transition: var(--ease);
+    display: flex;
+    flex-direction: column;
+}
+
+.produk-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-color: rgba(255, 204, 64, 0.3);
+}
+
+.produk-thumb {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+}
+
+.produk-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.produk-card:hover .produk-thumb img { transform: scale(1.08); }
+
+.produk-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--gold);
+    color: var(--maroon-900);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: 50px;
+}
+
+.produk-body {
+    padding: 18px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.produk-body h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.produk-body p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.produk-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.produk-harga {
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn-beli {
+    background: var(--maroon-700);
+    color: #fff;
+    border: 1px solid rgba(255, 204, 64, 0.4);
+    border-radius: var(--radius-sm);
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-beli:hover {
+    background: var(--gold);
+    color: var(--maroon-900);
+    border-color: var(--gold);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1024px) {
+    .produk-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .produk-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .produk-thumb { height: 150px; }
+    .produk-body h3 { font-size: 16px; }
+    .produk-harga { font-size: 16px; }
+}
+
+@media (max-width: 460px) {
+    .produk-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .btn-beli { width: 100%; justify-content: center; }
+}

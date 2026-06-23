@@ -1,0 +1,248 @@
+/* =====================================================
+   AUTH (Login & Register) — desain split-screen
+   ===================================================== */
+:root {
+    --maroon-900: #2b0000;
+    --maroon-800: #3f0808;
+    --maroon-700: #5A0C0C;
+    --maroon-500: #8e1717;
+    --gold:       #ffcc40;
+    --gold-dark:  #e0a800;
+    --text-muted: #c9a8a8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--maroon-900);
+    color: #fff;
+}
+
+.auth-wrap {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ---------------- panel kiri (brand) ---------------- */
+.auth-side {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 204, 64, 0.15), transparent 50%),
+        linear-gradient(160deg, var(--maroon-700), var(--maroon-900));
+    padding: 60px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-side::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background: rgba(255, 204, 64, 0.07);
+    border-radius: 50%;
+    bottom: -120px;
+    right: -100px;
+}
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.auth-brand img { height: 48px; }
+.auth-brand span { color: var(--gold); }
+
+.auth-side h2 {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.auth-side > p {
+    color: var(--text-muted);
+    max-width: 360px;
+    margin-bottom: 30px;
+}
+
+.auth-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.auth-points li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+}
+
+.auth-points i {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--maroon-900);
+    font-size: 12px;
+}
+
+/* ---------------- panel kanan (form) ---------------- */
+.auth-form-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-card h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.auth-card h1 + .auth-sub {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.field {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.field i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.field input {
+    width: 100%;
+    padding: 15px 16px 15px 44px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.field input::placeholder { color: var(--text-muted); }
+
+.field input:focus {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--gold);
+    color: var(--maroon-900);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 6px;
+}
+
+.auth-btn:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.auth-switch a {
+    color: var(--gold);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch a:hover { text-decoration: underline; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 880px) {
+    .auth-wrap { grid-template-columns: 1fr; }
+    .auth-side { display: none; }
+    .auth-form-side { min-height: 100vh; }
+}
+
+/* ---------------- PILIHAN ROLE (register) ---------------- */
+.role-label {
+    display: block;
+    color: #fff;
+    font-size: 13px;
+    margin: 4px 0 10px;
+}
+
+.role-pick {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.role-opt { position: relative; cursor: pointer; }
+
+.role-opt input {
+    position: absolute;
+    opacity: 0;
+}
+
+.role-opt span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.role-opt input:checked + span {
+    border-color: var(--gold);
+    background: rgba(255, 204, 64, 0.12);
+    color: var(--gold);
+}
