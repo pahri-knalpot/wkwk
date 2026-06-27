@@ -31,7 +31,7 @@ function rupiah($angka): string
 
                     <div class="produk-foot">
                         <span class="produk-harga"><?= rupiah($item['harga']) ?></span>
-                        <button class="btn-beli">
+                        <button class="btn-beli" data-beli>
                             <i class="fa-solid fa-cart-plus"></i> Beli
                         </button>
                     </div>

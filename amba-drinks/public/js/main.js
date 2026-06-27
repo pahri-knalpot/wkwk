@@ -115,3 +115,16 @@ fileInput?.addEventListener("change", () => {
     };
     reader.readAsDataURL(file);
 });
+
+// ================= TOMBOL BELI (cek login) =================
+
+document.querySelectorAll("[data-beli]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        if (window.AMBA_LOGGED_IN === true) {
+            // sudah login → lanjut (fitur beli menyusul)
+            return;
+        }
+        // belum login → tampilkan popup login dulu
+        openModal("modal-login-dulu");
+    });
+});

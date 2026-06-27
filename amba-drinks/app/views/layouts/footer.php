@@ -70,8 +70,22 @@
     </div>
     <?php endif; ?>
 
+    <!-- ============ MODAL: harus login dulu (klik Beli) ============ -->
+    <div class="modal-overlay" id="modal-login-dulu">
+        <div class="modal-box">
+            <div class="modal-icon"><i class="fa-solid fa-circle-user"></i></div>
+            <h3>Login dulu, yuk!</h3>
+            <p>Kamu perlu masuk ke akun pembeli sebelum bisa membeli produk.</p>
+            <div class="modal-actions">
+                <button class="btn-modal batal" type="button" data-close-modal>Nanti Saja</button>
+                <a class="btn-modal konfirm" href="<?= BASE_URL ?>/login">Login Sekarang</a>
+            </div>
+        </div>
+    </div>
+
     <script>
-        window.AMBA_WELCOME = <?= !empty($baruLogin) ? 'true' : 'false' ?>;
+        window.AMBA_WELCOME   = <?= !empty($baruLogin) ? 'true' : 'false' ?>;
+        window.AMBA_LOGGED_IN = <?= isset($_SESSION['id']) ? 'true' : 'false' ?>;
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
